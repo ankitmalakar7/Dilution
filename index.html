@@ -24,6 +24,12 @@
     ></script>
   </head>
   <body>
+    <style>
+      body {
+        background-image: url("/bg.jpg");
+        background-size: cover;
+      }
+    </style>
     <div class="container py-4">
       <header>
         <div
@@ -49,12 +55,72 @@
             >
             <button
               class="py-2 link-body-emphasis text-decoration-none button"
-              id="form-open"
-              href="#"
+              data-bs-toggle="modal"
+              data-bs-target="#staticBackdrop"
             >
-              Login
+              Logout
             </button>
           </nav>
+        </div>
+        <div
+          class="modal fade"
+          id="staticBackdrop"
+          data-bs-backdrop="static"
+          data-bs-keyboard="false"
+          tabindex="-1"
+          aria-labelledby="staticBackdropLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog text-black" role="document">
+            <div class="modal-content rounded-4 shadow">
+              <div class="modal-header p-5 pb-4 border-bottom-0">
+                <h1 class="fw-bold mb-0 fs-2">Sure to log out?</h1>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+
+              <div class="modal-body p-5 pt-0">
+                <form class="" name="form-signup">
+                  <div class="form-floating mb-3">
+                    <input
+                      type="email"
+                      class="form-control rounded-3"
+                      id="userName"
+                      placeholder="name@example.com"
+                    />
+                    <label for="floatingInput">Email address</label>
+                  </div>
+                  <div class="form-floating mb-3">
+                    <input
+                      type="password"
+                      class="form-control rounded-3"
+                      id="userPw"
+                      placeholder="Password"
+                    />
+                    <label for="floatingPassword">Password</label>
+                  </div>
+                  <button
+                    class="w-100 mb-2 btn btn-lg rounded-3 btn-primary"
+                    id="logout"
+                    type="submit"
+                    value="logout"
+                    onclick="check()"
+                  >
+                    Log out
+                  </button>
+                  <small class="text-body-secondary"
+                    >By clicking Log out, you will be returned back to the home
+                    page.</small
+                  >
+                  <hr class="my-4" />
+                </form>
+              </div>
+            </div>
+          </div>
         </div>
       </header>
     </div>
@@ -128,7 +194,6 @@
           class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 py-5"
         >
           <div class="col d-flex align-items-start">
-            <i class="fa-thin fa-wand-magic-sparkles"></i>
             <div>
               <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">
                 Search candidates
@@ -139,13 +204,6 @@
             </div>
           </div>
           <div class="col d-flex align-items-start">
-            <svg
-              class="bi text-body-secondary flex-shrink-0 me-3"
-              width="1.75em"
-              height="1.75em"
-            >
-              <use xlink:href="#cpu-fill"></use>
-            </svg>
             <div>
               <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">
                 Add candidate
@@ -154,26 +212,12 @@
             </div>
           </div>
           <div class="col d-flex align-items-start">
-            <svg
-              class="bi text-body-secondary flex-shrink-0 me-3"
-              width="1.75em"
-              height="1.75em"
-            >
-              <use xlink:href="#calendar3"></use>
-            </svg>
             <div>
               <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Recruiters</h3>
               <p>Completely made for recruiters and HRs.</p>
             </div>
           </div>
           <div class="col d-flex align-items-start">
-            <svg
-              class="bi text-body-secondary flex-shrink-0 me-3"
-              width="1.75em"
-              height="1.75em"
-            >
-              <use xlink:href="#home"></use>
-            </svg>
             <div>
               <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Conference</h3>
               <p>A dedicated app to create conference with candidates.</p>
@@ -184,82 +228,6 @@
 
       <footer class="pt-3 mt-4 text-body-secondary border-top">© 2023</footer>
     </div>
-
-    <!-- Home -->
-    <section class="home">
-      <div class="form_container">
-        <i class="uil uil-times form_close"></i>
-        <!-- Login From -->
-        <div class="form login_form" id="loginForm">
-          <form>
-            <h2>Login</h2>
-
-            <div class="input_box">
-              <input
-                type="email"
-                id="username"
-                placeholder="Enter your email"
-                required
-              />
-              <i class="uil uil-envelope-alt email"></i>
-            </div>
-            <div class="input_box">
-              <input
-                type="password"
-                id="password"
-                placeholder="Enter your password"
-                required
-              />
-              <i class="uil uil-lock password"></i>
-              <i class="uil uil-eye-slash pw_hide"></i>
-            </div>
-
-            <div class="option_field">
-              <span class="checkbox">
-                <input type="checkbox" id="check" />
-                <label for="check">Remember me</label>
-              </span>
-              <a href="#" class="forgot_pw">Forgot password?</a>
-            </div>
-
-            <button class="button">Login Now</button>
-
-            <div class="login_signup">
-              Don't have an account? <a href="#" id="signup">Signup</a>
-            </div>
-          </form>
-        </div>
-
-        <!-- Signup From -->
-        <div class="form signup_form">
-          <form action="#">
-            <h2>Signup</h2>
-
-            <div class="input_box">
-              <input type="email" placeholder="Enter your email" required />
-              <i class="uil uil-envelope-alt email"></i>
-            </div>
-            <div class="input_box">
-              <input type="password" placeholder="Create password" required />
-              <i class="uil uil-lock password"></i>
-              <i class="uil uil-eye-slash pw_hide"></i>
-            </div>
-            <div class="input_box">
-              <input type="password" placeholder="Confirm password" required />
-              <i class="uil uil-lock password"></i>
-              <i class="uil uil-eye-slash pw_hide"></i>
-            </div>
-
-            <button class="button">Signup Now</button>
-
-            <div class="login_signup">
-              Already have an account? <a href="#" id="login">Login</a>
-            </div>
-          </form>
-        </div>
-      </div>
-    </section>
-
     <script src="script.js"></script>
   </body>
 </html>
