@@ -7,6 +7,7 @@ const formOpenBtn = document.querySelector("#form-open"),
   pwShowHide = document.querySelectorAll(".pw_hide");
 
 formOpenBtn.addEventListener("click", () => home.classList.add("show"));
+// formOpenBtn.addEventListener("click", () => home.classList.remove("show"));
 formCloseBtn.addEventListener("click", () => home.classList.remove("show"));
 
 pwShowHide.forEach((icon) => {
@@ -28,7 +29,6 @@ signupBtn.addEventListener("click", (e) => {
 });
 // loginBtn.addEventListener("click", (e) => {
 //   e.preventDefault();
-//   //   formContainer.classList.remove("active");
 
 //   if (username === "admin@gmail.com" && password === "pass") {
 //     window.location.href = "home.html";
@@ -40,12 +40,13 @@ document
   .getElementById("loginForm")
   .addEventListener("submit", function (event) {
     event.preventDefault();
+    formContainer.classList.remove("active");
 
     var username = document.getElementById("username").value;
     var password = document.getElementById("password").value;
 
     if (username === "a@xyz.com" && password === "pass") {
-      window.location.href = "home.html"; // Redirect to home.html
+      window.location.href = "candidate.html"; // Redirect to home.html
     } else {
       alert("Invalid username or password"); // Display error message
     }
