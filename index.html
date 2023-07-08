@@ -45,14 +45,22 @@
           <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
             <a
               class="me-3 py-2 link-body-emphasis text-decoration-none"
-              href="#"
+              href="/candidate.html"
               >Candidates</a
             >
             <a
               class="me-3 py-2 link-body-emphasis text-decoration-none"
-              href="#"
+              href="https://conferenceee.netlify.app/"
               >Conference</a
             >
+            <button
+              class="py-2 link-body-emphasis text-decoration-none button"
+              style="margin-right: 5px"
+            >
+              <a href="/login.html" style="text-decoration: none; color: black">
+                Log in
+              </a>
+            </button>
             <button
               class="py-2 link-body-emphasis text-decoration-none button"
               data-bs-toggle="modal"
@@ -223,11 +231,98 @@
               <p>A dedicated app to create conference with candidates.</p>
             </div>
           </div>
+          <div class="col d-flex align-items-start">
+            <div>
+              <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Login/Signup</h3>
+              <p>
+                Secured for admins to create an account for further purposes.
+              </p>
+            </div>
+          </div>
+          <div class="col d-flex align-items-start">
+            <div>
+              <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Log out</h3>
+              <p>
+                Each n every time you log out, your local storage data has
+                removed to make it more secure.
+              </p>
+            </div>
+          </div>
+          <div class="col d-flex align-items-start">
+            <div>
+              <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">
+                Digital Solution
+              </h3>
+              <p>
+                Find a variety of candidates that suit your company very easily,
+                forget all difficulties in finding a proper candidate for you.
+              </p>
+            </div>
+          </div>
+          <div class="col d-flex align-items-start">
+            <div>
+              <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">
+                Improvements?
+              </h3>
+              <p>Always open for further improvements 😉.</p>
+            </div>
+          </div>
         </div>
       </div>
 
-      <footer class="pt-3 mt-4 text-body-secondary border-top">© 2023</footer>
+      <footer
+        class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top"
+      >
+        <p class="col-md-4 mb-0 text-body-secondary">© 2023</p>
+
+        <a
+          href="https://github.com/ankitmalakar7"
+          class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none"
+        >
+          <p>Made with 🖤 by Ankit Malakar</p>
+        </a>
+
+        <ul class="nav col-md-4 justify-content-end">
+          <li class="nav-item">
+            <a href="/" class="nav-link px-2 text-body-secondary">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="/candidate.html" class="nav-link px-2 text-body-secondary"
+              >Candidates</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              href="https://conferenceee.netlify.app/"
+              class="nav-link px-2 text-body-secondary"
+              target="_blank"
+              >Conference</a
+            >
+          </li>
+        </ul>
+      </footer>
+
+      <!-- cursor  -->
+      <div class="cursor">
+        <div class="cursor__ball cursor__ball--big">
+          <svg height="30" width="30">
+            <circle cx="15" cy="15" r="12" stroke-width="0"></circle>
+          </svg>
+        </div>
+
+        <div class="cursor__ball cursor__ball--small">
+          <svg height="10" width="10">
+            <circle cx="5" cy="5" r="4" stroke-width="0"></circle>
+          </svg>
+        </div>
+      </div>
     </div>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"
+      integrity="sha512-H6cPm97FAsgIKmlBA4s774vqoN24V5gSQL4yBTDOY2su2DeXZVhQPxFK4P6GPdnZqM9fg1G3cMv5wD7e6cFLZQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <script src="script.js"></script>
   </body>
 </html>

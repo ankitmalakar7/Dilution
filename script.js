@@ -1,53 +1,72 @@
-const formOpenBtn = document.querySelector("#form-open"),
-  home = document.querySelector(".home"),
-  formContainer = document.querySelector(".form_container"),
-  formCloseBtn = document.querySelector(".form_close"),
-  signupBtn = document.querySelector("#signup"),
-  loginBtn = document.querySelector("#login"),
-  pwShowHide = document.querySelectorAll(".pw_hide");
+function store() {
+  var name = document.getElementById("name");
+  var pw = document.getElementById("pw");
+  console.log(name);
+  console.log(pw);
+  if (name.value.length == 0) {
+    alert("Pease fill the email");
+  } else if (pw.value.length == 0) {
+    alert("Please fill the password");
+  } else if (pw.value.length == 0 && name.value.length == 0) {
+    alert("Please fill the email and password");
+  } else {
+    localStorage.setItem("name", name.value);
+    localStorage.setItem("pw", pw.value);
+    window.location.href = "index.html";
+    alert("Your account has been created");
+  }
+}
 
-formOpenBtn.addEventListener("click", () => home.classList.add("show"));
-// formOpenBtn.addEventListener("click", () => home.classList.remove("show"));
-formCloseBtn.addEventListener("click", () => home.classList.remove("show"));
+function check() {
+  var storedName = localStorage.getItem("name");
+  var storedPw = localStorage.getItem("pw");
 
-pwShowHide.forEach((icon) => {
-  icon.addEventListener("click", () => {
-    let getPwInput = icon.parentElement.querySelector("input");
-    if (getPwInput.type === "password") {
-      getPwInput.type = "text";
-      icon.classList.replace("uil-eye-slash", "uil-eye");
-    } else {
-      getPwInput.type = "password";
-      icon.classList.replace("uil-eye", "uil-eye-slash");
-    }
+  var userName = document.getElementById("userName");
+  var userPw = document.getElementById("userPw");
+  console.log(userName);
+  console.log(userPw);
+  var userRemember = document.getElementById("rememberMe");
+
+  if (userName.value == storedName && userPw.value == storedPw) {
+    localStorage.clear();
+    window.location.href = "login.html";
+    alert("You have logged out successfully.");
+  } else {
+    alert("Error during logout");
+  }
+}
+
+const $bigBall = document.querySelector(".cursor__ball--big");
+const $smallBall = document.querySelector(".cursor__ball--small");
+const $hoverables = document.querySelectorAll(".hoverable");
+
+// Listeners
+document.body.addEventListener("mousemove", onMouseMove);
+for (let i = 0; i < $hoverables.length; i++) {
+  $hoverables[i].addEventListener("mouseenter", onMouseHover);
+  $hoverables[i].addEventListener("mouseleave", onMouseHoverOut);
+}
+
+// Move the cursor
+function onMouseMove(e) {
+  TweenMax.to($bigBall, 0.4, {
+    x: e.pageX - 15,
+    y: e.pageY - 15,
   });
-});
-
-signupBtn.addEventListener("click", (e) => {
-  e.preventDefault();
-  formContainer.classList.add("active");
-});
-// loginBtn.addEventListener("click", (e) => {
-//   e.preventDefault();
-
-//   if (username === "admin@gmail.com" && password === "pass") {
-//     window.location.href = "home.html";
-//   } else {
-//     alert("Invalid username or password");
-//   }
-// });
-document
-  .getElementById("loginForm")
-  .addEventListener("submit", function (event) {
-    event.preventDefault();
-    formContainer.classList.remove("active");
-
-    var username = document.getElementById("username").value;
-    var password = document.getElementById("password").value;
-
-    if (username === "a@xyz.com" && password === "pass") {
-      window.location.href = "candidate.html"; // Redirect to home.html
-    } else {
-      alert("Invalid username or password"); // Display error message
-    }
+  TweenMax.to($smallBall, 0.1, {
+    x: e.pageX - 5,
+    y: e.pageY - 7,
   });
+}
+
+// Hover an element
+function onMouseHover() {
+  TweenMax.to($bigBall, 0.3, {
+    scale: 4,
+  });
+}
+function onMouseHoverOut() {
+  TweenMax.to($bigBall, 0.3, {
+    scale: 1,
+  });
+}
